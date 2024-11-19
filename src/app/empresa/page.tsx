@@ -27,7 +27,7 @@ export default function Empresa() {
     };
 
     // Function to format CNPJ as user types
-    const formatCNPJ = (value: String) => {
+    const formatCNPJ = (value: string) => {
         return value
             .replace(/\D/g, '') // Remove anything that's not a digit
             .replace(/^(\d{2})(\d)/, '$1.$2')
@@ -38,7 +38,7 @@ export default function Empresa() {
     };
 
     // Function to format phone number
-    const formatPhone = (value: String) => {
+    const formatPhone = (value: string) => {
         return value
             .replace(/\D/g, '')
             .replace(/(\d{2})(\d)/, '($1) $2')

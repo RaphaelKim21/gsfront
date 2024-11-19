@@ -30,7 +30,7 @@ export default function Cadastro() {
     };
 
     // Function to format CPF
-    const formatCPF = (value: String) => {
+    const formatCPF = (value: string) => {
         return value
             .replace(/\D/g, '')
             .replace(/(\d{3})(\d)/, '$1.$2')
@@ -40,7 +40,7 @@ export default function Cadastro() {
     };
 
     // Function to format phone number
-    const formatPhone = (value: String) => {
+    const formatPhone = (value: string) => {
         return value
             .replace(/\D/g, '')
             .replace(/(\d{2})(\d)/, '($1) $2')

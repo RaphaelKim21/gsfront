@@ -1,5 +1,4 @@
 
-import Link from 'next/link';
 import Image from 'next/image';
 import logo from "/public/images/logo.png";
 import insta from "/public/images/insta.png";
