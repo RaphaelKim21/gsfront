@@ -21,7 +21,6 @@ export default function Login(){
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        // Handle form submission here
         console.log(formData); 
         router.replace ('/')
     };
@@ -31,8 +30,8 @@ export default function Login(){
         <div
         className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat"
         style={{
-            backgroundImage: "url(/images/fundo.jpg)", // Replace with your image path
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fallback color
+            backgroundImage: "url(/images/fundo.jpg)", 
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', 
             backgroundBlendMode: 'overlay'
         }}
         >

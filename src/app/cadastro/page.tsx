@@ -6,10 +6,8 @@ import { useState } from 'react';
 export default function Cadastro() {
     const [formData, setFormData] = useState({
         nome: '',
-        idade: '',
         cpf: '',
         endereco: '',
-        numero: '',
         telefone: '',
         email: '',
         senha:''
@@ -25,11 +23,9 @@ export default function Cadastro() {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        // Handle form submission here
         console.log(FormData);
     };
 
-    // Function to format CPF
     const formatCPF = (value: string) => {
         return value
             .replace(/\D/g, '')
@@ -39,7 +35,6 @@ export default function Cadastro() {
             .replace(/(-\d{2})\d+?$/, '$1');
     };
 
-    // Function to format phone number
     const formatPhone = (value: string) => {
         return value
             .replace(/\D/g, '')
@@ -52,8 +47,8 @@ export default function Cadastro() {
         <div
             className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat"
             style={{
-                backgroundImage: "url(/images/fundo.jpg)", // Replace with your image path
-                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fallback color
+                backgroundImage: "url(/images/fundo.jpg)", 
+                backgroundColor: 'rgba(0, 0, 0, 0.5)', 
                 backgroundBlendMode: 'overlay'
             }}
         >
@@ -64,7 +59,7 @@ export default function Cadastro() {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Nome */}
+                   
                     <div>
                         <label htmlFor="nome" className="block text-sm font-medium text-gray-700">
                             Nome Completo
@@ -82,7 +77,7 @@ export default function Cadastro() {
                         />
                     </div>
 
-                    {/* Email - New Field */}
+                    
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                             E-mail
@@ -100,7 +95,7 @@ export default function Cadastro() {
                         />
                     </div>
 
-                    {/* Telefone - New Field */}
+                   
                     <div>
                         <label htmlFor="telefone" className="block text-sm font-medium text-gray-700">
                             Telefone
@@ -122,27 +117,9 @@ export default function Cadastro() {
                         />
                     </div>
 
-                    {/* Idade */}
-                    <div>
-                        <label htmlFor="idade" className="block text-sm font-medium text-gray-700">
-                            Idade
-                        </label>
-                        <input
-                            type="number"
-                            name="idade"
-                            id="idade"
-                            value={formData.idade}
-                            onChange={handleChange}
-                            required
-                            min="0"
-                            max="120"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-300 focus:ring-yellow-300 sm:text-sm
-                       p-2 border focus:outline-none"
-                            placeholder="Digite sua idade"
-                        />
-                    </div>
+                   
 
-                    {/* CPF */}
+                    
                     <div>
                         <label htmlFor="cpf" className="block text-sm font-medium text-gray-700">
                             CPF
@@ -164,7 +141,7 @@ export default function Cadastro() {
                         />
                     </div>
 
-                    {/* Endereço */}
+                    
                     <div>
                         <label htmlFor="endereco" className="block text-sm font-medium text-gray-700">
                             Endereço
@@ -182,24 +159,7 @@ export default function Cadastro() {
                         />
                     </div>
 
-                    {/* Número */}
-                    <div>
-                        <label htmlFor="numero" className="block text-sm font-medium text-gray-700">
-                            Número
-                        </label>
-                        <input
-                            type="text"
-                            name="numero"
-                            id="numero"
-                            value={formData.numero}
-                            onChange={handleChange}
-                            required
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-300 focus:ring-yellow-300 sm:text-sm
-                       p-2 border focus:outline-none"
-                            placeholder="Digite o número"
-                        />
-                    </div>
-
+                   
                     <div>
                         <label htmlFor="senha" className="block text-sm font-medium text-gray-700">
                             Senha
@@ -217,7 +177,7 @@ export default function Cadastro() {
                         />
                     </div>
 
-                    {/* Submit Button */}
+                    
                     <div>
                         <button
                             type="submit"

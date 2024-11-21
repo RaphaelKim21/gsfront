@@ -1,4 +1,4 @@
-// pages/criadores.js
+
 import React from "react";
 
 export default function Criadores() {
@@ -33,12 +33,8 @@ export default function Criadores() {
               className="bg-white shadow-lg rounded-lg p-6 text-center"
             >
               <div className="h-40 w-40 mx-auto mb-4 bg-gray-300 rounded-full overflow-hidden">
-                {/* Espaço reservado para a imagem */}
-                <img
-                  src={criador.imagem}
-                  alt={`Foto de ${criador.nome}`}
-                  className="h-full w-full object-cover"
-                />
+                
+                <img src={criador.imagem}alt={`Foto de ${criador.nome}`}className="h-full w-full object-cover"/>
               </div>
               <h2 className="text-2xl font-bold text-gray-800">{criador.nome}</h2>
               <p className="text-gray-600 mt-2">{criador.rm}</p>

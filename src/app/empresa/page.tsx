@@ -22,14 +22,12 @@ export default function Empresa() {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        // Handle form submission here
         console.log(formData);
     };
 
-    // Function to format CNPJ as user types
     const formatCNPJ = (value: string) => {
         return value
-            .replace(/\D/g, '') // Remove anything that's not a digit
+            .replace(/\D/g, '') 
             .replace(/^(\d{2})(\d)/, '$1.$2')
             .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
             .replace(/\.(\d{3})(\d)/, '.$1/$2')
@@ -37,7 +35,6 @@ export default function Empresa() {
             .replace(/(-\d{2})\d+?$/, '$1');
     };
 
-    // Function to format phone number
     const formatPhone = (value: string) => {
         return value
             .replace(/\D/g, '')
@@ -50,8 +47,8 @@ export default function Empresa() {
         <div
             className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat"
             style={{
-                backgroundImage: "url(/images/fundo.jpg)", // Replace with your image path
-                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fallback color
+                backgroundImage: "url(/images/fundo.jpg)", 
+                backgroundColor: 'rgba(0, 0, 0, 0.5)', 
                 backgroundBlendMode: 'overlay'
             }}
         >
@@ -62,7 +59,7 @@ export default function Empresa() {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Razão Social */}
+                   
                     <div>
                         <label htmlFor="razaoSocial" className="block text-sm font-medium text-gray-700">
                             Razão Social
@@ -80,7 +77,7 @@ export default function Empresa() {
                         />
                     </div>
 
-                    {/* CNPJ */}
+                   
                     <div>
                         <label htmlFor="cnpj" className="block text-sm font-medium text-gray-700">
                             CNPJ
@@ -102,7 +99,7 @@ export default function Empresa() {
                         />
                     </div>
 
-                    {/* Endereço */}
+                    
                     <div>
                         <label htmlFor="endereco" className="block text-sm font-medium text-gray-700">
                             Endereço
@@ -120,7 +117,7 @@ export default function Empresa() {
                         />
                     </div>
 
-                    {/* Número */}
+                    
                     <div>
                         <label htmlFor="numero" className="block text-sm font-medium text-gray-700">
                             Número
@@ -138,7 +135,7 @@ export default function Empresa() {
                         />
                     </div>
 
-                    {/* Telefone */}
+                   
                     <div>
                         <label htmlFor="telefone" className="block text-sm font-medium text-gray-700">
                             Telefone
