@@ -1,5 +1,4 @@
 "use client"
-import React, { FormEvent } from 'react';
 import { useState } from 'react';
 
 export default function Empresa() {
