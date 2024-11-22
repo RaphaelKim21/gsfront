@@ -19,11 +19,33 @@ export default function Login(){
         }));
     };
 
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        console.log(formData); 
-        router.replace ('/')
-    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const cabecalho = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        }
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/login', cabecalho)
+
+        if (response.ok) {
+            alert(`${formData.campo} Logado`)
+            setFormData({ campo: '',
+                senha:''})
+        } else {
+            const data = await response.json()
+             console.log(data);
+            
+        }
+    } catch (error) {
+        console.error("Erro ao cadastrar o produto", error);
+
+    }
+}
 
 
     return(
