@@ -1,11 +1,8 @@
 "use client"
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { FormEvent } from 'react';
 import { useState } from 'react';
 
 export default function Login(){
-    const router = useRouter()
     const [formData, setFormData] = useState({
         campo: '',
         senha:''
