@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function Empresa() {
     const [formData, setFormData] = useState({
-        razaoSocial: '',
+        razao_social: '',
         cnpj: '',
         endereco: '',
         numero: '',
@@ -20,10 +20,6 @@ export default function Empresa() {
         }));
     };
 
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        console.log(formData);
-    };
 
     const formatCNPJ = (value: string) => {
         return value
@@ -43,6 +39,37 @@ export default function Empresa() {
             .replace(/(-\d{4})\d+?$/, '$1');
     };
 
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const cabecalho = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        }
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/cadastro/empresa', cabecalho)
+
+        if (response.ok) {
+            alert(`${formData.razao_social} cadastrado com sucesso!`)
+            setFormData({ razao_social: '',
+                cnpj: '',
+                endereco: '',
+                numero: '',
+                telefone: '',
+                senha:''})
+        } else {
+            const data = await response.json()
+             console.log(data);
+            
+        }
+    } catch (error) {
+        console.error("Erro ao cadastrar o produto", error);
+
+    }
+}
+
     return (
         <div
             className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat"
@@ -61,14 +88,14 @@ export default function Empresa() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                    
                     <div>
-                        <label htmlFor="razaoSocial" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="razao_social" className="block text-sm font-medium text-gray-700">
                             Razão Social
                         </label>
                         <input
                             type="text"
-                            name="razaoSocial"
-                            id="razaoSocial"
-                            value={formData.razaoSocial}
+                            name="razao_social"
+                            id="razao_social"
+                            value={formData.razao_social}
                             onChange={handleChange}
                             required
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-300 focus:ring-yellow-300 sm:text-sm

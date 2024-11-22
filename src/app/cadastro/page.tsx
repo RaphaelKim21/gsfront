@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { FormEvent } from 'react';
 import { useState } from 'react';
 
+
 export default function Cadastro() {
     const [formData, setFormData] = useState({
         nome: '',
@@ -21,10 +22,6 @@ export default function Cadastro() {
         }));
     };
 
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-        console.log(FormData);
-    };
 
     const formatCPF = (value: string) => {
         return value
@@ -42,6 +39,37 @@ export default function Cadastro() {
             .replace(/(\d{5})(\d)/, '$1-$2')
             .replace(/(-\d{4})\d+?$/, '$1');
     };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const cabecalho = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        }
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/cadastro/pessoa', cabecalho)
+
+        if (response.ok) {
+            alert(`${formData.nome} cadastrado com sucesso!`)
+            setFormData({ nome: '',
+                cpf: '',
+                endereco: '',
+                telefone: '',
+                email: '',
+                senha:''})
+        } else {
+            const data = await response.json()
+             console.log(data);
+            
+        }
+    } catch (error) {
+        console.error("Erro ao cadastrar o produto", error);
+
+    }
+}
 
     return (
         <div
